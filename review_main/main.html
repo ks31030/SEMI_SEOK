@@ -5,8 +5,9 @@
             /* 전체 페이지 스타일 */
             body {
                 font-family: Arial, sans-serif;
-                background-color: #f2f2f2;
-                margin: 0;
+                background-color: #ffffff;
+                margin-left: 350px;
+                margin-right: 350px;
                 padding: 0;
                 text-align: center;
             }
@@ -17,14 +18,13 @@
                 text-align: center;
             }
             /* 폼 스타일 */
-            form {
+            .post-form {
                 background-color: #fff;
-                border: 1px solid #ccc;
                 border-radius: 5px;
                 padding: 20px;
                 margin: 20px;
-                width: 300px;
-                display: inline-block;
+                width: 400px;
+                height: 300px;
             }
 
             /* 레이블 스타일 */
@@ -45,6 +45,51 @@
             }
 
             /* 버튼 스타일 */
+            .btn1{
+                box-sizing: border-box;
+                background-color: transparent;
+                border: 2px solid #5C408C;
+                border-radius: 0.6em;
+                color: #5C408C;
+                cursor: pointer;
+                font-size: 1rem;
+                line-height: 1;
+                margin: 20px;
+                padding: 13px;
+                text-align: center;
+                font-weight: 700;
+                transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+            }
+
+            .btn1:hover, :focus{
+            box-shadow: 0 0 40px 40px #5C408C inset;
+            color: #fff;
+            outline: 0;
+            }
+
+            .btn2{
+                height:40px;
+                box-sizing: border-box;
+                background-color: transparent;
+                border: 2px solid #04681a;
+                border-radius: 100%;
+                color: #04681a;
+                cursor: pointer;
+                font-size: 30px;
+                line-height: 0;
+                margin: 20px;
+                padding: 11px;
+                text-align: center;
+                font-weight: 0;
+                transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+            }
+
+            .btn2:hover, :focus{
+            box-shadow: 0 0 40px 40px #04681a inset;
+            color: #fff;
+            outline: 0;
+            }
+            
             table {
                 width: 80%;
                 margin: 20px auto;
@@ -71,8 +116,17 @@
         </style>
         <title>가지마켓</title>
         <h1>가지마켓</h1>
-    </head>
+        <h2>후기 등록</h2>
+    </head><br>
     <body>
-        
+        <button class="btn2"onclick="prevButton()"><</button>
+        <form class="post-form">
+            <input type="text" placeholder="제목을 입력하세요.">
+            <input type="text" height="500px" placeholder="내용을 입력하세요.">
+        </form>
+        <button class="btn2"onclick="nextButton()">></button>
+        <button class="btn1" type="submit" id="post-button">파일첨부</button>
+        <button class="btn1" onclick="createbutton()">등록</button>
+        <button class="btn1" onclick="cancelbutton()">취소</button>
     </body>
 </html>
