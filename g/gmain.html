@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>리뷰 게시판</title>
+</head>
+    <body>
+        <h1>리뷰 게시판</h1>
+
+        <!-- 리뷰 작성 양식 -->
+        <div>
+            <h2>리뷰 작성</h2>
+            <form id="reviewForm">
+                <label for="userName">이름:</label>
+                <input type="text" id="userName" name="userName"><br><br>
+
+                <label for="userReview">리뷰:</label><br>
+                <textarea id="userReview" name="userReview" rows="4" cols="50"></textarea><br><br>
+
+                <input type="submit" value="리뷰 제출">
+            </form>
+        </div>
+
+        <!-- 리뷰 목록 -->
+        <div>
+            <h2>리뷰 목록</h2>
+            <div id="reviewList">
+                <!-- 여기에 동적으로 리뷰가 추가될 공간 -->
+            </div>
+        </div>
+
+        <script>
+            // JavaScript를 사용하여 리뷰 제출 및 목록 관리
+
+            document.getElementById("reviewForm").addEventListener("submit", function(event) {
+                event.preventDefault(); // 폼 제출 시 페이지 새로고침 방지
+
+                // 입력된 값 가져오기
+                var userName = document.getElementById("userName").value;
+                var userReview = document.getElementById("userReview").value;
+
+                // 새 리뷰 요소 생성
+                var reviewElement = document.createElement("div");
+                reviewElement.innerHTML = "<strong>" + userName + ":</strong> " + userReview;
+
+                // 리뷰 목록에 새 리뷰 추가
+                document.getElementById("reviewList").appendChild(reviewElement);
+
+                // 리뷰 작성 양식 초기화
+                document.getElementById("userName").value = "";
+                document.getElementById("userReview").value = "";
+            });
+        </script>
+</body>
+</html>
