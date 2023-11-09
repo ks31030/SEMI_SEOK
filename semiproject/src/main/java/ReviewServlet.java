@@ -39,17 +39,17 @@ public class ReviewServlet extends HttpServlet {
 				    MBirth  DATE
 			);*/
 			   	int rNo = Integer.parseInt(request.getParameter("REVIEW_NO"));
-			   	byte rFile = request.getParameter("REVIEW_FILE");
+			   	String rFile = request.getParameter("REVIEW_FILE");
 	            String rTitle = request.getParameter("REVIEW_TITLE");
 	            String rText = request.getParameter("REVIEW_TEXT");
-	            Date rTime = request.getParameter("REVIEW_TIME");
+	            String rTime = request.getParameter("REVIEW_TIME");
 	            String rId = request.getParameter("ACCOUNT_ID");
 			
 			//회원가입 insert 
 	            String sql = "INSERT INTO BOARD_REVIEW (REVIEW_NO, REVIEW_FILE, REVIEW_TITLE, REVIEW_TEXT, REVIEW_TIME, ACCOUNT_ID) VALUES (?, ?, ?, ?, ?, ?)";
 	            PreparedStatement preparedStatement = connection.prepareStatement(sql);
 	            preparedStatement.setInt(1, rNo);
-	            preparedStatement.setByte(2, rFile);
+	            preparedStatement.setString(2, rFile);
 	            preparedStatement.setString(3, rTitle);
 	            preparedStatement.setString(4, rText);
 	            preparedStatement.setDate(5, Date.valueOf(rTime));
