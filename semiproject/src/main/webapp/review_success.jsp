@@ -9,9 +9,9 @@
 <body>
 <h1>후기 작성에 성공!</h1>
 <h2> 후기 정보 :</h2>
-<p> 번호 : <%= session.getAttribute("review_no") %></p>
-<p> 제목 : <%= session.getAttribute("review_title") %></p>
-<p> 본문 : <%= session.getAttribute("review_text") %></p>
-<p> 작성자 : <%= session.getAttribute("account_id") %></p>
+<p> 제목 : <%= session.getAttribute("REVIEW_TITLE") %></p>
+<p> 첨부 : <%= session.getAttribute("REVIEW_FILE") %></p>
+<p> 본문 : <%= session.getAttribute("REVIEW_TEXT") %></p>
+<p> 작성자 : <%= session.getAttribute("ACCOUNT_ID") %></p>
 </body>
 </html>

@@ -10,6 +10,6 @@
 <h1>작성 실패</h1>
 <p>후기 작성 중 오류가 발생했습니다. 
 작성을 다시 시도해주세요.</p>
-<a href="review.jsp">다시 작성하러 가기</a>
+<a href="review_create.jsp">다시 작성하러 가기</a>
 </body>
 </html>

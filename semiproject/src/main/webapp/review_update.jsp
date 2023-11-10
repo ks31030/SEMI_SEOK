@@ -31,15 +31,14 @@
 				
 				form {
 				    background-color: #fff;
-				    border: 1px solid #ccc;
 				    border-radius: 5px;
 				    padding: 100px;
-					margin: auto;
-				    margin-top: 80px;
-				    width: 320px;
+				    width: 35%;
 				    display: inline-block;
 		          	text-align: center;
 					margin: auto;
+					color: #5C408C;
+					font-weight: 700;
 				}
 				label {
 				    display: block;
@@ -77,6 +76,37 @@
 				    margin: 3%;
 				    text-align: center;
 				}
+				li {
+				    position: relative;
+				}
+				li a:after {
+				    content: '';
+				    position: absolute;
+				    left: 0;
+				    bottom: 0;
+				    width: 100%;
+				    height: 3px;
+				    background-image: linear-gradient(90deg, #6C44BB, #6DA44C); /*밑줄*/
+				    opacity: 0;
+				    -webkit-transform: translateY(5px);
+				    -moz-transform: translateY(5px);
+				    transform: translateY(5px);
+				    -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+				    -moz-transition: -moz-transform 0.3s, opacity 0.3s;
+				    transition: transform 0.3s, opacity 0.3s;
+				}  
+				li a:hover:before, li a:focus:before {
+				    opacity: 0;
+				    -webkit-transform: translateY(-2px);
+				    -moz-transform: translateY(-2px);
+				    transform: translateY(-2px);
+				}
+				li a:hover:after, li a:focus:after {
+				    opacity: 1;
+				    -webkit-transform: translateY(0px);
+				    -moz-transform: translateY(0px);
+				    transform: translateY(0px);
+				}
 				.logo{
 				    color: purple;
 				    font-family: 'LOTTERIACHAB';
@@ -95,14 +125,22 @@
 				input[type="text"],
 				input[type="email"],
 				input[type="date"] {
-				    width: 300px;
+				    width: 90%;
 				    padding: 10px;
 				    margin-bottom: 15px;
-				    border: 1px solid #ccc;
+				    border: 1.5px solid #1c7714;
 				    border-radius: 5px;
 				    display: inline-block;
-		          	text-align: center;
+		          	text-align: left;
+		          	font-weight: 700;
 				}
+				textarea {
+				    width: 96%;
+				    height: 15em;
+				    border: 1.5px solid #1c7714;
+				    border-radius: 5px;
+				    font-weight: 700;
+			 	}
 			     .btn1{
 		            box-sizing: border-box;
 		            background-color: transparent;
@@ -114,10 +152,10 @@
 		            line-height: 0.3;
 		            margin: auto;
 		            padding: 13px;
-		            text-align: left;
 		            font-weight: 700;
 		            transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
 		            display : inline-block;
+		            float: left;
 		         }
 		
 		         .btn1:hover, .btn1:focus{
@@ -135,7 +173,7 @@
 		            cursor: pointer;
 		            font-size: 1.5rem;
 		            line-height: 0.6;
-		            margin: auto;
+		            margin: 1%;
 		            padding: 13px;
 		            text-align: center;
 		            font-weight: 0;
@@ -159,9 +197,9 @@
 		            line-height: 0.3;
 		            margin: auto;
 		            padding: 13px;
-		            text-align: center;
 		            font-weight: 700;
 		            transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+		            float: right;
 		         }
 		         .btn3:hover, .btn3:focus{
 					box-shadow: 0 0 40px 40px #5C408C inset;
@@ -176,21 +214,28 @@
 		         	width:100%;
 		         	text-align: center;
 					margin: auto;
+					position: absolute;
 		         }
 		         .wing1{
-		          	width:33%;
-					text-align: right;
+		          	width:25%;
+					text-align: center;
 					margin: auto;
 					float: left;
+					position: absolute;
+					left: 22%;
+					bottom: 50%;
 		         }
 		         .wing2{
-		         	width:33%;
-					text-align: left;
+		         	width:25%;
+					text-align: center;
 					margin: auto;
 					float: right;
+					position: absolute;
+					right: 22%;
+					bottom: 50%;
 		         }
 		         .mainform{
-		         	width:34%;
+		         	width:50%;
 					text-align: center;
 					margin: auto;
 		         }
@@ -199,23 +244,6 @@
 
 	
 <body>
-	<!-- <p id="login-join-link">로그인 회원가입</p>
-        <header>
-            <div id="logo">
-                <p id="gajimarket">가지마켓</p>
-            </div>
-            <div id="mascot">
-                <img src="img/gajidori.png" alt="gajidori" id="gajidori">
-            </div>
-        </header>
-         <nav>
-            <ul>
-                <li>자유게시판</li>
-                <li>리뷰게시판</li>
-                <li>문의게시판</li>
-                <li>마이페이지</li>
-            </ul>
-        </nav> -->
         	<p id="login-join-link">로그인 회원가입</p>
         <header>
             <div id="logo">
@@ -227,10 +255,10 @@
         </header>
         <nav>
         	<ul>
-                <li>자유게시판</li>
-                <li>리뷰게시판</li>
-                <li>문의게시판</li>
-                <li>마이페이지</li>
+                <li><a>자유게시판</a></li>
+                <li><a>리뷰게시판</a></li>
+                <li><a>문의게시판</a></li>
+                <li><a>마이페이지</a></li>
             </ul>
         </nav>
         
@@ -245,25 +273,30 @@
 				<form action="ReviewServlet" method="post">
 					
 						<label for="rTitle">제목</label>
-				        <input type="text" id="rTitle" name="rTitle" required><br>
+				        <input type="text" placeholder='제목을 작성해주세요.' id="rTitle" name="rTitle" required><br>
 				        
 					    <label for="rFile">첨부</label>
-				        <input type="file" id="rFile" name="rFile" required><br>
+				        <input type="file" style="float:left" placeholder='사진이나 영상 파일을 업로드해주세요.' id="rFile" name="rFile" required><br><br>
 				
 				        <label for="rText">내용</label>
-				        <input type="text" id="rText" name="rText" required><br>
+				        <textarea
+						    rows={large ? 5 : 1}
+						    placeholder='자유롭게 작성해주세요.'
+						    value={text}
+						    onChange={handleChange}
+						/></textarea><br>
 				        
 				        <label for="rId">ID</label>
-				        <input type="text" id="rId" name="rId" required><br><br>
+				        <input type="text" placeholder='작성하시는 분의 아이디를 입력해주세요.' id="rId" name="rId" required><br><br>
 					
 					<div>
-				        <button class="btn1" style="float: left" type="submit" id="post-button">파일첨부</button>
+				        <button class="btn1" type="submit" id="post-button">목록</button>
 			        </div>
-			        <div>
-			       		<button class="btn3" style="float: right" type="submit" onclick="cancelbutton()">취소</button>
+			        <div class="canBtn">
+			       		<button class="btn3" type="submit" onclick="cancelbutton()">취소</button>
 			       	</div>
-			        <div>
-			        	<button class="btn3" style="float: right" type="submit" onclick="createbutton()">등록</button>
+			        <div class="creBtn">
+			        	<button class="btn3" type="submit" onclick="createbutton()">수정</button>
 			       	</div>
 			    </form>
 			</div>
