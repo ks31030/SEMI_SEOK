@@ -32,23 +32,16 @@ public class UpdateServlet extends HttpServlet {
 		try {
 			Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
 	            String rTitle = request.getParameter("REVIEW_TITLE");
-	            Part rFile = request.getPart("REVIEW_FILE");
 	            String rText = request.getParameter("REVIEW_TEXT");
-	            String rId = request.getParameter("ACCOUNT_ID");
-			//¸®ºä insert
+	            String rNo = request.getParameter("REVIEW_NO");
+			//¸®ºä UPDATE
 	            String sql = "UPDATE BOARD_REVIEW SET REVIEW_TITLE = ?, REVIEW_TEXT = ? WHERE REVIEW_NO = ?";
 	            PreparedStatement preparedStatement = connection.prepareStatement(sql);
 	            preparedStatement.setString(1, rTitle);
-	            preparedStatement.setBinaryStream(2, rFile.getInputStream(),(int) rFile.getSize());
-	            preparedStatement.setString(3, rText);
-	            preparedStatement.setString(4, rId);
+	            preparedStatement.setString(2, rText);
+	            preparedStatement.setString(3, rNo);
 
 	            preparedStatement.executeUpdate();
-	           
-	            request.getSession().setAttribute("REVIEW_TITLE", rTitle);
-	            request.getSession().setAttribute("REVIEW_FILE", rFile);
-	            request.getSession().setAttribute("REVIEW_TEXT", rText);
-	            request.getSession().setAttribute("ACCOUNT_ID", rId);
 
 	            response.sendRedirect("review_success.jsp");
 		} catch (SQLException e) {

@@ -74,12 +74,12 @@ public class ReviewDAO {
 			
 			if(resultSet.next()) {
 				int reviewNo = resultSet.getInt("REVIEW_NO");
-				String accountId = resultSet.getString("ACCOUNT_ID");
 				String reviewTitle = resultSet.getString("REVIEW_TITLE");
 				String reviewText = resultSet.getString("REVIEW_TEXT");
 				Timestamp reviewTime = resultSet.getTimestamp("REVIEW_TIME");
+				String accountId = resultSet.getString("ACCOUNT_ID");
 				
-				review = new Review (reviewNo, accountId, reviewTitle, reviewTime, reviewText);
+				review = new Review (reviewNo, reviewTitle, reviewText, reviewTime, accountId);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

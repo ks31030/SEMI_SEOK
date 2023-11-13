@@ -189,8 +189,7 @@
             <th>ÀÛ¼ºÀÚ</th>
         </tr>
 
-        <% 
-            // Retrieve review list from the database
+        <%
             ReviewDAO reviewDAO = new ReviewDAO();
             List<Review> reviewList = reviewDAO.getAllReviews();
 

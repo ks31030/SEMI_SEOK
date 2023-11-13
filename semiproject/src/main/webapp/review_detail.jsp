@@ -177,11 +177,10 @@ li a:hover:after, li a:focus:after {
 	Review review = reviewDao.getReviewNo(reviewNo);
 	%>
 	<p>
-		사용자 ID :
-		<%=review.getACCOUNT_ID()%><br> 제목 :
-		<%=review.getREVIEW_TITLE()%><br> 내용 :
-		<%=review.getREVIEW_TEXT()%><br> 작성 시간 :
-		<%=review.getREVIEW_TIME()%>
+		제목 :<%=review.getREVIEW_TITLE()%><br>
+		내용 :<%=review.getREVIEW_TEXT()%><br>
+		사용자 ID :<%=review.getACCOUNT_ID()%><br>
+		작성 시간 :<%=review.getREVIEW_TIME()%>
 	</p>
 	<%
 

@@ -35,7 +35,7 @@ public class CreateServlet extends HttpServlet {
 	            Part rFile = request.getPart("REVIEW_FILE");
 	            String rText = request.getParameter("REVIEW_TEXT");
 	            String rId = request.getParameter("ACCOUNT_ID");
-			//¸®ºä insert
+			//¸®ºä INSERT
 	            String sql = "INSERT INTO BOARD_REVIEW(REVIEW_TITLE, REVIEW_FILE, REVIEW_TEXT, ACCOUNT_ID) VALUES (?, ?, ?, ?)";
 	            PreparedStatement preparedStatement = connection.prepareStatement(sql);
 	            preparedStatement.setString(1, rTitle);

@@ -277,17 +277,17 @@
 			<button class="btn2" onclick="nextButton()">></button>
 		</div>
 		<div class="mainform">
-            <form id="updateForm" action="UpdateServlet" method="post">
-            
-            	<label for="REVIEW_NO">번호</label>
-                <input type="text" placeholder='수정할 게시글의 번호를 입력해주세요.' id="REVIEW_NO" name="REVIEW_NO" required><br>
+            <form action="UpdateServlet" method="post" enctype="multipart/form-data">
                 
                 <label for="REVIEW_TITLE">제목</label>
                 <input type="text" placeholder='제목을 수정해주세요.' id="REVIEW_TITLE" name="REVIEW_TITLE" required><br>
 
                 <label for="REVIEW_TEXT">내용</label>
-                <textarea rows="5" placeholder='내용을 수정해주세요.' id="REVIEW_TEXT" name="REVIEW_TEXT" required></textarea><br><br>
+                <textarea rows="5" placeholder='내용을 수정해주세요.' id="REVIEW_TEXT" name="REVIEW_TEXT" required></textarea><br>
 				
+				<label for="REVIEW_NO">번호</label>
+                <input type="text" placeholder='수정할 게시글의 번호를 입력해주세요.' id="REVIEW_NO" name="REVIEW_NO" required><br><br>
+                
                 <div>
                     <button class="btn1" type="submit" id="list-button">목록</button>
                 </div>
