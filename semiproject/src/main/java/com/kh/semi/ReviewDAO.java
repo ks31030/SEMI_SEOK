@@ -1,3 +1,4 @@
+package com.kh.semi;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -20,11 +21,11 @@ public class ReviewDAO {
 		}
 	}
 	
-	public List<Review> getAllProducts(){
+	public List<Review> getAllReviews(){
 		List<Review> reviews = new ArrayList<>();
 		try {
 			Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-			String sql = "SELECT REVIEW_NO, REVIEW_TITLE, REVIEW_TEXT, REVIEW_TIME, ACCOUNT_ID FROM BOARD_REVIEW";
+			String sql = "SELECT REVIEW_NO, REVIEW_TITLE, REVIEW_TEXT, REVIEW_TIME, ACCOUNT_ID FROM BOARD_REVIEW ORDER BY REVIEW_NO DESC";
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ResultSet resultSet = ps.executeQuery();
 			
@@ -44,31 +45,46 @@ public class ReviewDAO {
 		return reviews;
 		
 	}
-	
-	public Review getAccountId(String accountId) {
-		Review review = null;
-		List<Review> reviews = new ArrayList<>();
+
+	public int delete(int reviewNo) {
+		int result = 0;
 		try {
-			Connection connection = DriverManager.getConnection(jdbcURL,jdbcUsername,jdbcPassword);
-			String sql = "SELECT REVIEW_NO, REVIEW_TITLE, REVIEW_TEXT, REVIEW_TIME, ACCOUNT_ID FROM BOARD_REVIEW WHERE ACCOUNT_ID = ?";
+			Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+			
+			String sql = "DELETE FROM BOARD_REVIEW WHERE REVIEW_NO = ?";
 			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setInt(1, reviewNo);
+			
+			result = ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	public Review getReviewNo(int reviewNos) {
+		Review review = null;
+		String selectSql = "SELECT * FROM BOARD_REVIEW WHERE REVIEW_NO = ?";
+	
+		try {
+			Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+			PreparedStatement ps = connection.prepareStatement(selectSql);
+			ps.setInt(1, reviewNos);
 			ResultSet resultSet = ps.executeQuery();
 			
-			while(resultSet.next()){
+			if(resultSet.next()) {
 				int reviewNo = resultSet.getInt("REVIEW_NO");
+				String accountId = resultSet.getString("ACCOUNT_ID");
 				String reviewTitle = resultSet.getString("REVIEW_TITLE");
 				String reviewText = resultSet.getString("REVIEW_TEXT");
 				Timestamp reviewTime = resultSet.getTimestamp("REVIEW_TIME");
 				
-				Review review1 = new Review(reviewNo, reviewTitle, reviewText, reviewTime, accountId);
-				reviews.add(review1);
+				review = new Review (reviewNo, accountId, reviewTitle, reviewTime, reviewText);
 			}
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		//select해서 1만 볼 수 있는 쿼리 작성하고
-		//new product 이용해서 값 가지고 오기.
+		
 		return review;
 	}
 }

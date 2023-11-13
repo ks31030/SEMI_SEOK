@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ page import="com.kh.semi.Review"%>
+<%@ page import="com.kh.semi.ReviewDAO"%>   
 <!DOCTYPE html>
 	<html>
 		<head>
 			<meta charset="EUC-KR">
-			<title>가지고 싶은 물건, 가지가지 다~ 있다! 가지마켓</title>
-	       
+			<title>게시글 삭제</title>
 	        <style>
 	        	body{
 				    margin: 0;
@@ -257,6 +258,7 @@
                 <li><a>마이페이지</a></li>
             </ul>
         </nav>
+
         <div class="aa">
 			 <div class="wing1">
 		    	<button class="btn2" onclick="prevButton()"><</button>
@@ -273,16 +275,11 @@
 			        <div class="canBtn">
 			       		<button class="btn3" type="submit" onclick="cancelbutton()">취소</button>
 			       	</div>
-			        <div class="creBtn">
-			        	<button class="btn3" type="submit" onclick="createbutton()">삭제</button>
+			        <div class="delBtn">
+			        	<button class="btn3" type="submit" onclick="deletebutton()">삭제</button>
 			       	</div>
 			    </form>
 			</div>
-	    	
     	</div>
 </body>
-		
-<foot>
-		
- </foot>
 </html>

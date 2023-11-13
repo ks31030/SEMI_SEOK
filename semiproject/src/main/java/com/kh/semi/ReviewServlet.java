@@ -1,3 +1,4 @@
+package com.kh.semi;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -33,7 +34,7 @@ public class ReviewServlet extends HttpServlet {
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ResultSet resultSet = ps.executeQuery();
 			
-			//제품 목록을 저장할 장바구니 같은 ArrayList 생성.
+			//게시글 목록을 저장할 장바구니 같은 ArrayList 생성.
 			ArrayList<Review> reviewList = new ArrayList<>();
 			
 			while(resultSet.next()) {
