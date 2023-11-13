@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ page import="com.kh.semi.UpdateServlet" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -284,9 +285,9 @@
                 <label for="REVIEW_TITLE">제목</label>
                 <input type="text" placeholder='제목을 수정해주세요.' id="REVIEW_TITLE" name="REVIEW_TITLE" required><br>
 
-                <label for="rText">내용</label>
+                <label for="REVIEW_TEXT">내용</label>
                 <textarea rows="5" placeholder='내용을 수정해주세요.' id="REVIEW_TEXT" name="REVIEW_TEXT" required></textarea><br><br>
-
+				
                 <div>
                     <button class="btn1" type="submit" id="list-button">목록</button>
                 </div>

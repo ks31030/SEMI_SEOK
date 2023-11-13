@@ -1,6 +1,7 @@
 package com.kh.semi;
 
 import java.io.IOException;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -30,28 +31,26 @@ public class UpdateServlet extends HttpServlet {
 		}
 		try {
 			Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-				String REVIEW_NO = request.getParameter("REVIEW_NO");
-	            String REVIEW_TITLE = request.getParameter("REVIEW_TITLE");
-	            String REVIEW_TEXT = request.getParameter("REVIEW_TEXT");
-	            
-	            String sql = "UPDATE BOARD_REVIEW SET REVIEW_TITLE=?, REVIEW_TEXT=? WHERE REVIEW_NO=?";
+	            String rTitle = request.getParameter("REVIEW_TITLE");
+	            Part rFile = request.getPart("REVIEW_FILE");
+	            String rText = request.getParameter("REVIEW_TEXT");
+	            String rId = request.getParameter("ACCOUNT_ID");
+			//¸®ºä insert
+	            String sql = "UPDATE BOARD_REVIEW SET REVIEW_TITLE = ?, REVIEW_TEXT = ? WHERE REVIEW_NO = ?";
 	            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-	            preparedStatement.setString(1, REVIEW_NO);
-	            preparedStatement.setString(2, REVIEW_TITLE);
-	            preparedStatement.setString(3, REVIEW_TEXT);
+	            preparedStatement.setString(1, rTitle);
+	            preparedStatement.setBinaryStream(2, rFile.getInputStream(),(int) rFile.getSize());
+	            preparedStatement.setString(3, rText);
+	            preparedStatement.setString(4, rId);
 
-	            int rowsUpdated = preparedStatement.executeUpdate();
+	            preparedStatement.executeUpdate();
+	           
+	            request.getSession().setAttribute("REVIEW_TITLE", rTitle);
+	            request.getSession().setAttribute("REVIEW_FILE", rFile);
+	            request.getSession().setAttribute("REVIEW_TEXT", rText);
+	            request.getSession().setAttribute("ACCOUNT_ID", rId);
 
-	            if (rowsUpdated > 0) {
-	                request.getSession().setAttribute("REVIEW_NO", REVIEW_NO);
-	                request.getSession().setAttribute("REVIEW_TITLE", REVIEW_TITLE);
-	                request.getSession().setAttribute("REVIEW_TEXT", REVIEW_TEXT);
-
-	                response.sendRedirect("review_success.jsp");
-	            } else {
-	                response.sendRedirect("review_error.jsp");
-	            }
-	            
+	            response.sendRedirect("review_success.jsp");
 		} catch (SQLException e) {
 
 			response.sendRedirect("review_error.jsp");

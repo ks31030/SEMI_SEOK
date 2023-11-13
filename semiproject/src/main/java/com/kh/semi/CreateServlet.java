@@ -43,13 +43,7 @@ public class CreateServlet extends HttpServlet {
 	            preparedStatement.setString(3, rText);
 	            preparedStatement.setString(4, rId);
 
-	            preparedStatement.executeUpdate();
 	            ResultSet resultSet = preparedStatement.executeQuery();
-	           
-	            request.getSession().setAttribute("REVIEW_TITLE", rTitle);
-	            request.getSession().setAttribute("REVIEW_FILE", rFile);
-	            request.getSession().setAttribute("REVIEW_TEXT", rText);
-	            request.getSession().setAttribute("ACCOUNT_ID", rId);
 
 	            response.sendRedirect("review_success.jsp");
 		} catch (SQLException e) {
