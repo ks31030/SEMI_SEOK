@@ -84,8 +84,6 @@ public class ReviewDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
 		return review;
 	}
-	
 }

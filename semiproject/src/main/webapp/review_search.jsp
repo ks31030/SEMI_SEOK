@@ -31,12 +31,14 @@
 	            </ul>
 	        </nav>
 	        <div class="aa">
+	        <!--
 		<div class="wing1">
 			<button class="btn2" onclick="prevButton()"><</button>
 		</div>
 		<div class="wing2">
 			<button class="btn2" onclick="nextButton()">></button>
 		</div>
+		-->
 		<div class="mainform">
 			<form action="SearchServlet" method="post" enctype="multipart/form-data">
 				
