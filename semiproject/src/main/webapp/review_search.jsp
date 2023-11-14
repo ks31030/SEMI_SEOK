@@ -8,11 +8,9 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>리뷰 목록</title>
-    <link rel="stylesheet" type="text/css" href="mainpage.css">
+    <title>게시글 검색</title>
+    <link rel="stylesheet" type="text/css" href="css/rSearch.css">
     <script src="https://kit.fontawesome.com/def66b134a.js" crossorigin="anonymous"></script>
-    <style>
-    </style>
 </head>
 <body>
 	<p id="login-join-link"><a href="login.jsp">로그인</a> &nbsp;&nbsp; <a href="register.jsp">회원가입</a></p>
@@ -32,34 +30,35 @@
 	                <li><a>마이페이지</a></li>
 	            </ul>
 	        </nav>
-	        <div class="mainform">
-			<form action="ReadServlet" method="post" enctype="multipart/form-data">
-    <table border="1">
-        <tr>
-            <th>번호</th>
-            <th>제목</th>
-            <th>본문</th>
-            <th>작성일</th>
-            <th>작성자</th>
-        </tr>
+	        <div class="aa">
+		<div class="wing1">
+			<button class="btn2" onclick="prevButton()"><</button>
+		</div>
+		<div class="wing2">
+			<button class="btn2" onclick="nextButton()">></button>
+		</div>
+		<div class="mainform">
+			<form action="SearchServlet" method="post" enctype="multipart/form-data">
+				
+				<label for="REVIEW_TITLE">제목</label>
+				<input type="text" placeholder='제목을 검색해주세요.' id="REVIEW_TITLE" name="REVIEW_TITLE" required><br>
+				
+				<label for="ACCOUNT_ID">ID</label>
+				<input type="text" placeholder='아이디를 검색해주세요.' id="ACCOUNT_ID" name="ACCOUNT_ID" required><br><br>
 
-        <% 
-            // Retrieve review list from the database
-            ReviewDAO reviewDAO = new ReviewDAO();
-            List<Review> reviewList = reviewDAO.getReviewByAccountId();
-
-            for (Review review : reviewList) {
-        %>
-        <tr>
-            <td><%= review.getREVIEW_NO() %></td>
-            <td><%= review.getREVIEW_TITLE() %></td>
-            <td><%= review.getREVIEW_TEXT() %></td>
-            <td><%= review.getREVIEW_TIME() %></td>
-            <td><%= review.getACCOUNT_ID() %></td>
-        </tr>
-        <% } %>
-    </table>
-    </form>
-    </div>
+				<div>
+					<button class="btn1"><a href ="review_list.jsp">목록</a></button>
+				</div>
+				
+				<div class="canBtn">
+					<button class="btn3" type="submit" onclick="cancelbutton()">취소</button>
+				</div>
+				
+				<div class="srcBtn">
+					<button class="btn3" type="submit" onclick="searchbutton()">검색</button>
+				</div>
+			</form>
+		</div>
+	</div>
 </body>
 </html>

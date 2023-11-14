@@ -16,9 +16,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
-@WebServlet("/ReadServlet")
+@WebServlet("/SearchServlet")
 @MultipartConfig
-public class ReadServlet extends HttpServlet {
+public class SearchServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// JDBC ºÒ·¯¿À±â
 		String jdbcURL = "jdbc:oracle:thin:@localhost:1521:xe";
@@ -31,31 +31,25 @@ public class ReadServlet extends HttpServlet {
 		}
 		try {
 			Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-				String rNo = request.getParameter("REVIEW_NO");
 	            String rTitle = request.getParameter("REVIEW_TITLE");
-	            Part rFile = request.getPart("REVIEW_FILE");
 	            String rText = request.getParameter("REVIEW_TEXT");
-	            Timestamp rTime = ((ResultSet) request).getTimestamp("REVIEW_TIME");
 	            String rId = request.getParameter("ACCOUNT_ID");
-			//¸®ºä insert
-	            String sql = "SELECT * FROM BOARD_REVIEW WHERE ACCOUNT_ID='%?%' OR REVIEW_TEXT='%?%' ";
+	            Timestamp rTime = ((ResultSet) request).getTimestamp("REVIEW_TIME");
+			//¸®ºä SELECT
+	            String sql = "SELECT * FROM BOARD_REVIEW ACCOUNT_ID LIKE '%?%'";
 	            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-	            preparedStatement.setString(1, rNo);
-	            preparedStatement.setString(2, rTitle);
-	            preparedStatement.setBinaryStream(3, rFile.getInputStream(),(int) rFile.getSize());
-	            preparedStatement.setString(4, rText);
-	            preparedStatement.setTimestamp(5, rTime);
-	            preparedStatement.setString(6, rId);
+	            preparedStatement.setString(1, rTitle);
+	            preparedStatement.setString(2, rText);
+	            preparedStatement.setString(3, rId);
+	            preparedStatement.setTimestamp(4, rTime);
 
-	            preparedStatement.executeUpdate();
 	            ResultSet resultSet = preparedStatement.executeQuery();
 	           
-	            request.getSession().setAttribute("REVIEW_NO", rNo);
 	            request.getSession().setAttribute("REVIEW_TITLE", rTitle);
-	            request.getSession().setAttribute("REVIEW_FILE", rFile);
 	            request.getSession().setAttribute("REVIEW_TEXT", rText);
-	            request.getSession().setAttribute("REVIEW_TIME", rTime);
 	            request.getSession().setAttribute("ACCOUNT_ID", rId);
+	            request.getSession().setAttribute("REVIEW_TIME", rTime);
+	            
 
 	            response.sendRedirect("review_detail.jsp");
 		} catch (SQLException e) {

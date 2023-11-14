@@ -8,8 +8,7 @@
 </head>
 <body>
 <h1>작업 실패</h1>
-<p>작업 중 오류가 발생했습니다. 
-작업을 다시 시도해주세요.</p>
-<a href="review_list.jsp">재시도</a>
+<p>사진을 누르면 다시 시도합니다!</p>
+<center><a href="review_list.jsp"><img src="./img/lose.jpg"></a></center>
 </body>
 </html>
