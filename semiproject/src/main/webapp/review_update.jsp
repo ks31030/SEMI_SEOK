@@ -1,18 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ page import="com.kh.semi.UpdateServlet" %>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="EUC-KR">
-    <title>°Ô½Ã±Û ¼öÁ¤</title>
+    <meta charset="UTF-8">
+    <title>ê²Œì‹œê¸€ ìˆ˜ì •</title>
 	<link rel="stylesheet" type="text/css" href="css/rUpdate.css">
 </head>
 <body>
-	<p id="login-join-link">·Î±×ÀÎ È¸¿ø°¡ÀÔ</p>
+	<p id="login-join-link">ë¡œê·¸ì¸ íšŒì›ê°€ìž…</p>
 	<header>
 		<div id="logo">
-			<p id="gajimarket">°¡Áö¸¶ÄÏ</p>
+			<p id="gajimarket">ê°€ì§€ë§ˆì¼“</p>
 		</div>
 		<div id="mascot">
 			<img src="img/gajidori.png" alt="gajidori" id="gajidori">
@@ -20,10 +20,10 @@
 	</header>
 	<nav>
 		<ul>
-			<li><a>ÀÚÀ¯°Ô½ÃÆÇ</a></li>
-			<li><a>¸®ºä°Ô½ÃÆÇ</a></li>
-			<li><a>¹®ÀÇ°Ô½ÃÆÇ</a></li>
-			<li><a>¸¶ÀÌÆäÀÌÁö</a></li>
+			<li><a>ìžìœ ê²Œì‹œíŒ</a></li>
+			<li><a>ë¦¬ë·°ê²Œì‹œíŒ</a></li>
+			<li><a>ë¬¸ì˜ê²Œì‹œíŒ</a></li>
+			<li><a>ë§ˆì´íŽ˜ì´ì§€</a></li>
 		</ul>
 	</nav>
 
@@ -39,18 +39,18 @@
 		<div class="mainform">
             <form action="UpdateServlet" method="post" enctype="multipart/form-data">
                 
-                <label for="REVIEW_TITLE">Á¦¸ñ</label>
-                <input type="text" placeholder='Á¦¸ñÀ» ¼öÁ¤ÇØÁÖ¼¼¿ä.' id="REVIEW_TITLE" name="REVIEW_TITLE" required><br>
+                <label for="REVIEW_TITLE">ì œëª©</label>
+                <input type="text" placeholder='ì œëª©ì„ ìˆ˜ì •í•´ì£¼ì„¸ìš”.' id="REVIEW_TITLE" name="REVIEW_TITLE" required><br>
 
-                <label for="REVIEW_TEXT">³»¿ë</label>
-                <textarea rows="5" placeholder='³»¿ëÀ» ¼öÁ¤ÇØÁÖ¼¼¿ä.' id="REVIEW_TEXT" name="REVIEW_TEXT" required></textarea><br><br>
+                <label for="REVIEW_TEXT">ë‚´ìš©</label>
+                <textarea rows="5" placeholder='ë‚´ìš©ì„ ìˆ˜ì •í•´ì£¼ì„¸ìš”.' id="REVIEW_TEXT" name="REVIEW_TEXT" required></textarea><br><br>
 				
-				<label for="REVIEW_NO">¹øÈ£</label>
-                <input type="text" placeholder='¼öÁ¤ÇÒ °Ô½Ã±ÛÀÇ ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.' id="REVIEW_NO" name="REVIEW_NO" required><br><br>
+				<label for="REVIEW_NO">ë²ˆí˜¸</label>
+                <input type="text" placeholder='ìˆ˜ì •í•  ê²Œì‹œê¸€ì˜ ë²ˆí˜¸ë¥¼ ìž…ë ¥í•´ì£¼ì„¸ìš”.' id="REVIEW_NO" name="REVIEW_NO" required><br><br>
                 <div>
-                    <button class="btn1"><a href ="review_list.jsp">¸ñ·Ï</a></button>
-                    <button class="btn3" type="button" onclick="cancelbutton()">Ãë¼Ò</button>
-                    <button class="btn3" type="submit" onclick="updatebutton()">¼öÁ¤</button>
+                    <button class="btn1"><a href ="review_list.jsp">ëª©ë¡</a></button>
+                    <button class="btn3" type="button" onclick="cancelbutton()">ì·¨ì†Œ</button>
+                    <button class="btn3" type="submit" onclick="updatebutton()">ìˆ˜ì •</button>
                 </div>
             </form>
         </div>

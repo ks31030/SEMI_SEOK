@@ -1,19 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ page import="com.kh.semi.Review"%>
 <%@ page import="com.kh.semi.ReviewDAO"%>   
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="EUC-KR">
-		<title>°Ô½Ã±Û »èÁ¦</title>
+		<meta charset="UTF-8">
+		<title>ê²Œì‹œê¸€ ì‚­ì œ</title>
 		<link rel="stylesheet" type="text/css" href="css/rDelete.css">
 	</head>
 	<body>
-   		<p id="login-join-link">·Î±×ÀÎ È¸¿ø°¡ÀÔ</p>
+   		<p id="login-join-link">ë¡œê·¸ì¸ íšŒì›ê°€ìž…</p>
         <header>
         	<div id="logo">
-            	<p id="gajimarket">°¡Áö¸¶ÄÏ</p>
+            	<p id="gajimarket">ê°€ì§€ë§ˆì¼“</p>
             </div>
             <div id="mascot">
                 <img src="img/gajidori.png" alt="gajidori" id="gajidori">
@@ -21,10 +21,10 @@
         </header>
         <nav>
         	<ul>
-                <li><a>ÀÚÀ¯°Ô½ÃÆÇ</a></li>
-                <li><a>¸®ºä°Ô½ÃÆÇ</a></li>
-                <li><a>¹®ÀÇ°Ô½ÃÆÇ</a></li>
-                <li><a>¸¶ÀÌÆäÀÌÁö</a></li>
+                <li><a>ìžìœ ê²Œì‹œíŒ</a></li>
+                <li><a>ë¦¬ë·°ê²Œì‹œíŒ</a></li>
+                <li><a>ë¬¸ì˜ê²Œì‹œíŒ</a></li>
+                <li><a>ë§ˆì´íŽ˜ì´ì§€</a></li>
             </ul>
         </nav>
         <div class="aa">
@@ -39,15 +39,15 @@
     	<div class="mainform">
 			<form action="DeleteServlet" method="post">
 				<label for="REVIEW_NO"></label>
-		        <input type="text" placeholder='»èÁ¦ÇÒ ¹øÈ£¸¦ ÀÛ¼ºÇØÁÖ¼¼¿ä.' id="REVIEW_NO" name="REVIEW_NO" required><br>
+		        <input type="text" placeholder='ì‚­ì œí•  ë²ˆí˜¸ë¥¼ ìž‘ì„±í•´ì£¼ì„¸ìš”.' id="REVIEW_NO" name="REVIEW_NO" required><br>
 		<div>
-        	<button class="btn1"><a href ="review_list.jsp">¸ñ·Ï</a></button>
+        	<button class="btn1"><a href ="review_list.jsp">ëª©ë¡</a></button>
         </div>
         <div class="canBtn">
-   			<button class="btn3" type="submit" onclick="cancelbutton()">Ãë¼Ò</button>
+   			<button class="btn3" type="submit" onclick="cancelbutton()">ì·¨ì†Œ</button>
        	</div>
         <div class="delBtn">
-       		<button class="btn3" type="submit" onclick="deletebutton()">»èÁ¦</button>
+       		<button class="btn3" type="submit" onclick="deletebutton()">ì‚­ì œ</button>
        	</div>
 			</form>
 		</div>

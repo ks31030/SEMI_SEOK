@@ -1,14 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>ÀÛ¾÷ ½ÇÆÐ</title>
+<meta charset="UTF-8">
+<title>ìž‘ì—… ì‹¤íŒ¨</title>
 </head>
 <body>
-<h1>ÀÛ¾÷ ½ÇÆÐ</h1>
-<p>»çÁøÀ» ´©¸£¸é ´Ù½Ã ½ÃµµÇÕ´Ï´Ù!</p>
+<h1>ìž‘ì—… ì‹¤íŒ¨</h1>
+<p>ì‚¬ì§„ì„ ëˆ„ë¥´ë©´ ë‹¤ì‹œ ì‹œë„í•©ë‹ˆë‹¤!</p>
 <center><a href="review_list.jsp"><img src="./img/lose.jpg"></a></center>
 </body>
 </html>

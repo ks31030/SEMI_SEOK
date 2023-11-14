@@ -127,7 +127,7 @@ input[type="text"], input[type="email"], input[type="date"] {
 	font-weight: 700;
 }
 
-textarea {
+input[type="textarea"] {
 	width: 96%;
 	height: 15em;
 	border: 1.5px solid #1c7714;
@@ -212,26 +212,6 @@ textarea {
 	text-align: center;
 	margin: auto;
 	position: absolute;
-}
-
-.wing1 {
-	width: 25%;
-	text-align: center;
-	margin: auto;
-	float: left;
-	position: absolute;
-	left: 22%;
-	bottom: 50%;
-}
-
-.wing2 {
-	width: 25%;
-	text-align: center;
-	margin: auto;
-	float: right;
-	position: absolute;
-	right: 22%;
-	bottom: 50%;
 }
 
 .mainform {

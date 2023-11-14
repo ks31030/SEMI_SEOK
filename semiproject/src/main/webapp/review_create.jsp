@@ -1,17 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="EUC-KR">
-		<title>°Ô½Ã±Û ÀÛ¼º</title>
+		<meta charset="UTF-8">
+		<title>ê²Œì‹œê¸€ ìž‘ì„±</title>
 		<link rel="stylesheet" type="text/css" href="css/rCreate.css">
 	</head>
 	<body>
-		<p id="login-join-link">·Î±×ÀÎ È¸¿ø°¡ÀÔ</p>
+		<p id="login-join-link">ë¡œê·¸ì¸ íšŒì›ê°€ìž…</p>
 		<header>
 			<div id="logo">
-			<p id="gajimarket">°¡Áö¸¶ÄÏ</p>
+			<p id="gajimarket">ê°€ì§€ë§ˆì¼“</p>
 			</div>
 			<div id="mascot">
 			<img src="img/gajidori.png" alt="gajidori" id="gajidori">
@@ -19,10 +19,10 @@
 		</header>
 		<nav>
 			<ul>
-				<li><a>ÀÚÀ¯°Ô½ÃÆÇ</a></li>
-				<li><a>¸®ºä°Ô½ÃÆÇ</a></li>
-				<li><a>¹®ÀÇ°Ô½ÃÆÇ</a></li>
-				<li><a>¸¶ÀÌÆäÀÌÁö</a></li>
+				<li><a>ìžìœ ê²Œì‹œíŒ</a></li>
+				<li><a>ë¦¬ë·°ê²Œì‹œíŒ</a></li>
+				<li><a>ë¬¸ì˜ê²Œì‹œíŒ</a></li>
+				<li><a>ë§ˆì´íŽ˜ì´ì§€</a></li>
 			</ul>
 		</nav>
 		<div class="aa">
@@ -36,22 +36,22 @@
 		  -->
 		<div class="mainform">
 			<form action="CreateServlet" method="post" enctype="multipart/form-data">
-				<label for="REVIEW_TITLE">Á¦¸ñ</label>
-				<input type="text" placeholder='Á¦¸ñÀ» ÀÛ¼ºÇØÁÖ¼¼¿ä.' id="REVIEW_TITLE" name="REVIEW_TITLE" required><br>
-				<label for="REVIEW_FILE">Ã·ºÎ</label>
+				<label for="REVIEW_TITLE">ì œëª©</label>
+				<input type="text" placeholder='ì œëª©ì„ ìž‘ì„±í•´ì£¼ì„¸ìš”.' id="REVIEW_TITLE" name="REVIEW_TITLE" required><br>
+				<label for="REVIEW_FILE">ì²¨ë¶€</label>
 				<input type="file" id="REVIEW_FILE" name="REVIEW_FILE"><br>
-				<label for="REVIEW_TEXT">³»¿ë</label>
-				<input type="textarea" placeholder='³»¿ëÀ» ÀÛ¼ºÇØÁÖ¼¼¿ä.' id="REVIEW_TEXT" name="REVIEW_TEXT"required><br><br>
+				<label for="REVIEW_TEXT">ë‚´ìš©</label>
+				<input type="textarea" style="white-space: pre-wrap" placeholder=' ë‚´ìš©ì„ ìž‘ì„±í•´ì£¼ì„¸ìš”.' id="REVIEW_TEXT" name="REVIEW_TEXT"required><br><br>
 				<label for="ACCOUNT_ID">ID</label>
-				<input type="text" placeholder='ÀÛ¼ºÇÏ½Ã´Â ºÐÀÇ ¾ÆÀÌµð¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.' id="ACCOUNT_ID" name="ACCOUNT_ID" required><br> <br>
+				<input type="text" placeholder='ìž‘ì„±í•˜ì‹œëŠ” ë¶„ì˜ ì•„ì´ë””ë¥¼ ìž…ë ¥í•´ì£¼ì„¸ìš”.' id="ACCOUNT_ID" name="ACCOUNT_ID" required><br> <br>
 				<div>
-					<button class="btn1"><a href ="review_list.jsp">¸ñ·Ï</a></button>
+					<button class="btn1"><a href ="review_list.jsp">ëª©ë¡</a></button>
 				</div>
 				<div class="canBtn">
-					<button class="btn3" type="submit" onclick="cancelbutton()">Ãë¼Ò</button>
+					<button class="btn3" type="submit" onclick="cancelbutton()">ì·¨ì†Œ</button>
 				</div>
 				<div class="creBtn">
-					<button class="btn3" type="submit" onclick="createbutton()">µî·Ï</button>
+					<button class="btn3" type="submit" onclick="createbutton()">ë“±ë¡</button>
 				</div>
 			</form>
 		</div>

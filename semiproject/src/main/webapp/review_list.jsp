@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ page import="java.util.List" %>
 <%@ page import="com.kh.semi.Review" %>
 <%@ page import="com.kh.semi.ReviewDAO" %>
@@ -7,15 +7,15 @@
 <html>
 	<head>
     	<meta charset="UTF-8">
-    	<title>°Ô½Ã±Û ¸ñ·Ï</title>
+    	<title>ê²Œì‹œê¸€ ëª©ë¡</title>
     	<link rel="stylesheet" type="text/css" href="css/rList.css">
 		<script src="https://kit.fontawesome.com/def66b134a.js" crossorigin="anonymous"></script>
 	</head>
 	<body>
-		<p id="login-join-link"><a href="login.jsp">·Î±×ÀÎ</a> &nbsp;&nbsp; <a href="register.jsp">È¸¿ø°¡ÀÔ</a></p>
+		<p id="login-join-link"><a href="login.jsp">ë¡œê·¸ì¸</a> &nbsp;&nbsp; <a href="register.jsp">íšŒì›ê°€ìž…</a></p>
 	    	<header>
 	        	<div id="logo">
-	            	<p id="gajimarket">°¡Áö¸¶ÄÏ</p>
+	            	<p id="gajimarket">ê°€ì§€ë§ˆì¼“</p>
 	            </div>
 	            <div id="mascot">
 	            	<img src="img/gajidori.png" alt="gajidori" id="gajidori">
@@ -23,10 +23,10 @@
 	        </header>
 	        <nav>
 	            <ul>
-					<li><a>ÀÚÀ¯°Ô½ÃÆÇ</a></li>
-					<li><a>¸®ºä°Ô½ÃÆÇ</a></li>
-					<li><a>¹®ÀÇ°Ô½ÃÆÇ</a></li>
-					<li><a>¸¶ÀÌÆäÀÌÁö</a></li>
+					<li><a>ìžìœ ê²Œì‹œíŒ</a></li>
+					<li><a>ë¦¬ë·°ê²Œì‹œíŒ</a></li>
+					<li><a>ë¬¸ì˜ê²Œì‹œíŒ</a></li>
+					<li><a>ë§ˆì´íŽ˜ì´ì§€</a></li>
 				</ul>
 	        </nav>
 	        <div class="aa">
@@ -35,11 +35,11 @@
 			<div style="overflow-y:scroll; width: 850px; height:500px;">
 				<table border="1">
         			<tr>
-			            <th>¹øÈ£</th>
-			            <th>Á¦¸ñ</th>
-			            <th>º»¹®</th>
-			            <th>ÀÛ¼ºÀÏ</th>
-			            <th>ÀÛ¼ºÀÚ</th>
+			            <th>ë²ˆí˜¸</th>
+			            <th>ì œëª©</th>
+			            <th>ë³¸ë¬¸</th>
+			            <th>ìž‘ì„±ì¼</th>
+			            <th>ìž‘ì„±ìž</th>
 					</tr>
 					<%
 		            ReviewDAO reviewDAO = new ReviewDAO();
@@ -60,10 +60,10 @@
 				</div>
 			</form>
     		<div class="allBtn">
-				<button class = "btn1"><a href="review_create.jsp">»ý¼º</a></button>
-				<button class = "btn1"><a href="review_update.jsp">¼öÁ¤</a></button>
-				<button class = "btn1"><a href="review_delete.jsp">»èÁ¦</a></button>
-				<button class = "btn1"><a href="review_search.jsp">°Ë»ö</a></button><br><br><br><br><br>
+				<button class = "btn1"><a href="review_create.jsp">ìƒì„±</a></button>
+				<button class = "btn1"><a href="review_update.jsp">ìˆ˜ì •</a></button>
+				<button class = "btn1"><a href="review_delete.jsp">ì‚­ì œ</a></button>
+				<button class = "btn1"><a href="review_search.jsp">ê²€ìƒ‰</a></button><br><br><br><br><br>
 			</div>
 			</div>
 			</div>
