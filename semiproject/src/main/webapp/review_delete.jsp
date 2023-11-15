@@ -8,49 +8,49 @@
 		<meta charset="UTF-8">
 		<title>게시글 삭제</title>
 		<link rel="stylesheet" type="text/css" href="css/rDelete.css">
+		<script src="https://kit.fontawesome.com/def66b134a.js" crossorigin="anonymous"></script>
 	</head>
 	<body>
-   		<p id="login-join-link">로그인 회원가입</p>
-        <header>
-        	<div id="logo">
-            	<p id="gajimarket">가지마켓</p>
-            </div>
-            <div id="mascot">
-                <img src="img/gajidori.png" alt="gajidori" id="gajidori">
-            </div>
-        </header>
-        <nav>
-        	<ul>
-                <li><a>자유게시판</a></li>
-                <li><a>리뷰게시판</a></li>
-                <li><a>문의게시판</a></li>
-                <li><a>마이페이지</a></li>
-            </ul>
-        </nav>
-        <div class="aa">
-        	<!--
-			 <div class="wing1">
-		    	<button class="btn2" onclick="prevButton()"><</button>
-	    	</div>
-	    	<div class="wing2">
-	    		<button class="btn2" onclick="nextButton()">></button>
-	    	</div>
-	    	-->
-    	<div class="mainform">
-			<form action="DeleteServlet" method="post">
-				<label for="REVIEW_NO"></label>
-		        <input type="text" placeholder='삭제할 번호를 작성해주세요.' id="REVIEW_NO" name="REVIEW_NO" required><br>
-		<div>
-        	<button class="btn1"><a href ="review_list.jsp">목록</a></button>
+		<div class="inner">
+			<p class="login-join-link"><a href="login.jsp">로그인</a> &nbsp;&nbsp; <a href="register.jsp">회원가입</a></p>
+	    	<header>
+	        	<div class="logo">
+	            	<p class="gajimarket"><a href="review_list.jsp">가지마켓</a></p>
+	            </div>
+	            <div class="mascot">
+	            	<a href="review_list.jsp"><img src="img/gajidori.png" alt="gajidori" class="gajidori"></a>
+	            </div>
+	        </header>
+	        <nav>
+	            <ul>
+					<li><a>자유게시판</a></li>
+					<li><a>리뷰게시판</a></li>
+					<li><a>문의게시판</a></li>
+					<li><a>마이페이지</a></li>
+				</ul>
+	        </nav>
         </div>
-        <div class="canBtn">
-   			<button class="btn3" type="submit" onclick="cancelbutton()">취소</button>
-       	</div>
-        <div class="delBtn">
-       		<button class="btn3" type="submit" onclick="deletebutton()">삭제</button>
-       	</div>
-			</form>
-		</div>
-    	</div>
+        	<%
+			String reviewNoValue = (String)request.getParameter("REVIEW_No");
+	        int reviewNo = Integer.parseInt(reviewNoValue);
+			ReviewDAO rDAO = new ReviewDAO();
+			int result =  rDAO.deleteReview(reviewNo);
+	        if(result>0){
+	       	%>
+	        	<script type="text/javascript">
+	        		alert("글 삭제 성공");
+	        		location.href="review_list.jsp";
+	        	</script>
+	        <%
+	        } else {
+	        %>
+	        
+	        <script type="text/javascript">
+	        	alert("글 삭제 실패");
+	        	location.href="review_list.jsp";
+	        </script>
+	        <%
+	        }
+	        %>
 	</body>
 </html>

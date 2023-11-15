@@ -34,17 +34,17 @@ public class DeleteServlet extends HttpServlet {
 		try {
 			connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
 
-			int rNo = Integer.parseInt(request.getParameter("REVIEW_NO"));
-			ReviewDAO dao = new ReviewDAO();
-			int result =  dao.delete(rNo);
+			int reviewNo = Integer.parseInt(request.getParameter("REVIEW_NO"));
+			ReviewDAO rDAO = new ReviewDAO();
+			int result =  rDAO.deleteReview(reviewNo);
 			
 			String deleteSql = "DELETE FROM BOARD_REVIEW WHERE REVIEW_NO = ?";
 			ps = connection.prepareStatement(deleteSql);
-			ps.setInt(1, rNo);
+			ps.setInt(1, reviewNo);
 			
 			ps.executeUpdate();
 			
-			response.sendRedirect("review_success.jsp");
+			response.sendRedirect("review_list.jsp");
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

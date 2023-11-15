@@ -46,7 +46,7 @@ public class ReviewDAO {
 		
 	}
 
-	public int delete(int reviewNo) {
+	public int deleteReview(int reviewNo) {
 		int result = 0;
 		try {
 			Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
@@ -57,6 +57,7 @@ public class ReviewDAO {
 			
 			result = ps.executeUpdate();
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return result;
@@ -86,4 +87,5 @@ public class ReviewDAO {
 		}
 		return review;
 	}
+	
 }

@@ -7,8 +7,6 @@
 <title>작업 성공</title>
 </head>
 <body>
-<h1>작업 성공</h1>
-<p>사진을 누르면 목록으로 돌아갑니다.</p>
-<center><a href="review_list.jsp"><img src="./img/done.jpg"></a></center>
+<h1><a href="review_list.jsp">SUCCESS</a></h1>
 </body>
 </html>

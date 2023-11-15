@@ -11,74 +11,78 @@
 	    font-weight: 400;
 	    font-style: normal;
 	}
-	header{
-	    height:220px;
-	    display: flex;
+	
+	* {
+	    margin: 0;
+	    padding: 0;
+	    box-sizing: border-box;
 	}
-	form {
-		background-color: #fff;
-		border-radius: 5px;
-		padding: 100px;
-		width: auto;
-		height: 400px;
-		text-align: center;
-		margin: auto;
-		color: #5C408C;
-		font-weight: 700;
-		display: block;
-		margin-bottom: 5px;
-	}
-	table{
-		box-sizing: border-box;
-		background-color: transparent;
-		border: 2px solid #6DA44C;
-		border-radius: 0.6em;
-		color: black;
-		cursor: pointer;
-		font-size: 1rem;
-		line-height: 1;
-		margin: auto;
-		padding: 13px;
-		font-weight: 300;
-		transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
-		float: center;
-		width: 800px;
-		height: 300px;
-		}
-	body{
+	
+	body {
 	    margin-left: 350px;
 	    margin-right: 350px;
 	}
-	#login-join-link{
-	    text-align: right;
-	    line-height: 0;
+	
+	.inner {
+	    width: 1000px;
+	    margin: auto;
+	    height: 1080px;
 	}
-	#gajimarket{
+	
+	.login-join-link {
+	    text-align: right;
+	    height: 20px;
+	}
+	
+	header {
+	    height:220px;
+	}
+	
+	header:after {
+	    content: '';
+	    display: block;
+	    clear: both;
+	}
+	.logo {
+	    float: left;
+	    height: 220px;
+	    margin-left: 230px;
+	}
+	
+	.gajimarket {
 	    color: #6C44BB;
 	    text-shadow: 10px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
 	    font-family: 'LOTTERIACHAB';
 	    font-size: 80pt;
-	    margin-left: 275px;
-	    line-height: 0;
 	    letter-spacing: 10px;
+	    height: 220px;
+	    padding-top: 30px;
 	}
-	#gajidori{
+	
+	.mascot {
+	    float: left;
+	}
+	
+	.gajidori {
 	    width: 140px;
 	    margin-left: 25px;
 	}
-	nav{
+	
+	nav {
 	    background-color: lavender;
 	}
 	
-	ul li{
+	ul li {
 	    display: inline-block;
 	    font-family: 'SUITE-Regular';
 	    font-size: 20pt;
-	    margin-left: 115px;
+	    margin-left: 106px;
 	}
+	
 	li {
 	    position: relative;
 	}
+	
 	li a:after {
 	    content: '';
 	    position: absolute;
@@ -95,19 +99,53 @@
 	    -moz-transition: -moz-transform 0.3s, opacity 0.3s;
 	    transition: transform 0.3s, opacity 0.3s;
 	}  
+	
 	li a:hover:before, li a:focus:before {
 	    opacity: 0;
 	    -webkit-transform: translateY(-2px);
 	    -moz-transform: translateY(-2px);
 	    transform: translateY(-2px);
 	}
+	
 	li a:hover:after, li a:focus:after {
 	    opacity: 1;
 	    -webkit-transform: translateY(0px);
 	    -moz-transform: translateY(0px);
 	    transform: translateY(0px);
 	}
-	.search-box{
+	
+	.contents:after {
+	    content: '';
+	    display: block;
+	    clear: both;
+	} 
+	
+	.sidebar {
+		float: left;
+		width: 250px;
+		height: 679px;
+		color: aquamarine;
+	    background-color: rgb(218, 193, 193);
+	}
+	
+	.links {
+	    margin: 20px 0 0 20px;
+	}
+	
+	.main {
+	    float: left;
+	    width: 750px;
+	    height: 679px;
+		background-color: lightgray;	
+	}
+	
+	footer {
+	    text-align: center;
+	    background-color: beige;
+	    height: 100px;
+	}
+	
+	.search-box {
 	    padding: 7px;
 	    position: absolute;
 	    top: 35%;
@@ -118,10 +156,12 @@
 	    transition: 0.5s;
 	    width: 450px;
 	}
-	.search-box:hover{
+	
+	.search-box:hover {
 	    box-shadow: 0 0 0.5px 1px lawngreen;
 	}
-	.search-text{
+	
+	.search-text {
 	    border: none;
 	    outline: none;
 	    float: left;
@@ -130,7 +170,8 @@
 	    transition: 0.4s;
 	    width: 400px;
 	}
-	.search-button{
+	
+	.search-button {
 	    text-decoration: none;
 	    display: flex;
 	    justify-content: center;
@@ -141,12 +182,45 @@
 	    color: lawngreen;
 	}
 	
-	.allBtn{
-		border: 0px;
-		position: relative;
-		left : 28%;
+	foot {
+		text-align: center;
+		background-color: beige;
+		height: 100px;
 	}
-
+	
+/*********************from here*********************/
+	.innerReviewList {
+		background-color: #fff;
+		border-radius: 5px;
+		padding: 100px;
+		width: auto;
+		height: 400px;
+		text-align: center;
+		margin: auto;
+		color: #5C408C;
+		font-weight: 700;
+		display: block;
+		margin-bottom: 5px;
+	}
+	
+	table {
+		box-sizing: border-box;
+		background-color: transparent;
+		border: 2px solid #6DA44C;
+		border-radius: 0.6em;
+		color: black;
+		cursor: pointer;
+		font-size: 1rem;
+		line-height: 1;
+		margin: auto;
+		padding: 13px;
+		font-weight: 300;
+		transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+		float: center;
+		width: 800px;
+		height: 300px;
+	}
+	
 	.btn1 {
 		box-sizing: border-box;
 		background-color: transparent;
@@ -161,6 +235,8 @@
 		font-weight: 700;
 		transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
 		display: inline-block;
+		position: relative;
+		left : 28%;
 	}
 	
 	.btn1:hover, .btn1:focus {
@@ -168,3 +244,4 @@
 		color: #fff;
 		outline: 0;
 	}
+	

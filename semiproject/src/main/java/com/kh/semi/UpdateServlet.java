@@ -24,6 +24,7 @@ public class UpdateServlet extends HttpServlet {
 		String jdbcURL = "jdbc:oracle:thin:@localhost:1521:xe";
 		String jdbcUsername = "thirties";
 		String jdbcPassword = "3030";
+		
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
 		} catch (ClassNotFoundException e) {
@@ -31,19 +32,22 @@ public class UpdateServlet extends HttpServlet {
 		}
 		try {
 			Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-	            String rTitle = request.getParameter("REVIEW_TITLE");
-	            String rText = request.getParameter("REVIEW_TEXT");
-	            String rNo = request.getParameter("REVIEW_NO");
+	            
+			String reviewTitle = request.getParameter("REVIEW_TITLE");
+            String reviewText = request.getParameter("REVIEW_TEXT");
+            int reviewNo = Integer.parseInt(request.getParameter("REVIEW_NO"));
+
+            
 			//¸®ºä UPDATE
-	            String sql = "UPDATE BOARD_REVIEW SET REVIEW_TITLE = ?, REVIEW_TEXT = ? WHERE REVIEW_NO = ?";
-	            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-	            preparedStatement.setString(1, rTitle);
-	            preparedStatement.setString(2, rText);
-	            preparedStatement.setString(3, rNo);
+            String updateSql = "UPDATE BOARD_REVIEW SET REVIEW_TITLE = ?, REVIEW_TEXT = ? WHERE REVIEW_NO = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(updateSql);
+            preparedStatement.setString(1, reviewTitle);
+            preparedStatement.setString(2, reviewText);
+            preparedStatement.setInt(3, reviewNo);
 
-	            preparedStatement.executeUpdate();
+            preparedStatement.executeUpdate();
 
-	            response.sendRedirect("review_success.jsp");
+            response.sendRedirect("review_list.jsp");
 		} catch (SQLException e) {
 
 			response.sendRedirect("review_error.jsp");
