@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
-@WebServlet("/DeleteServlet")
-public class DeleteServlet extends HttpServlet {
+@WebServlet("/ReviewDeleteServlet")
+public class ReviewDeleteServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// DELETE FROM BOARD_QNA WHERE ACCOUNT_ID = ?;
 		// HttpSession httpSession = request.getSession();
@@ -44,7 +44,7 @@ public class DeleteServlet extends HttpServlet {
 			
 			ps.executeUpdate();
 			
-			response.sendRedirect("review_list.jsp");
+			response.sendRedirect("reviewList.jsp");
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

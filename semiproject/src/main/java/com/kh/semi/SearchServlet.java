@@ -51,10 +51,10 @@ public class SearchServlet extends HttpServlet {
 	            request.getSession().setAttribute("REVIEW_TIME", rTime);
 	            
 
-	            response.sendRedirect("review_detail.jsp");
+	            response.sendRedirect("reviewDetail.jsp");
 		} catch (SQLException e) {
 
-			response.sendRedirect("review_error.jsp");
+			response.sendRedirect("reviewList.jsp");
 			e.printStackTrace();
 		}
 	}

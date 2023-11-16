@@ -30,7 +30,7 @@ public class ReviewServlet extends HttpServlet {
 			Class.forName("oracle.jdbc.OracleDriver");
 			connection = DriverManager.getConnection(jdbcURL,jdbcUsername, jdbcPassword);
 			//SQL Äõ¸®
-			String sql = "SELECT REVIEW_NO, REVIEW_TITLE, REVIEW_TEXT, REVIEW_TIME, ACCOUNT_ID FROM BOARD_REVIEW";
+			String sql = "SELECT REVIEW_NO, REVIEW_TITLE, REVIEW_TEXT, REVIEW_TIME, ACCOUNT_ID, REVIEW_HIT FROM BOARD_REVIEW";
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ResultSet resultSet = ps.executeQuery();
 			
@@ -43,14 +43,15 @@ public class ReviewServlet extends HttpServlet {
 				String reviewText = resultSet.getString("REVIEW_TEXT");
 				Timestamp reviewTime = resultSet.getTimestamp("REVIEW_TIME");
 				String accountId = resultSet.getString("ACCOUNT_ID");
+				int reviewHit = resultSet.getInt("REVIEW_HIT");
 				
-				Review review = new Review(reviewNo, reviewTitle, reviewText, reviewTime, accountId);
+				Review review = new Review(reviewNo, reviewTitle, reviewText, reviewTime, accountId, reviewHit);
 
 				reviewList.add(review);
 			}
 			
-			request.setAttribute("review_list", reviewList);
-			request.getRequestDispatcher("/review_list.jsp").forward(request, response);
+			request.setAttribute("reviewList", reviewList);
+			request.getRequestDispatcher("/reviewList.jsp").forward(request, response);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {

@@ -7,6 +7,6 @@
 <title>작업 성공</title>
 </head>
 <body>
-<h1><a href="review_list.jsp">SUCCESS</a></h1>
+<h1><a href="reviewList.jsp">SUCCESS</a></h1>
 </body>
 </html>

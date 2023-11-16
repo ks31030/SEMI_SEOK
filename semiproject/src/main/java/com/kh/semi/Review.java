@@ -6,24 +6,27 @@ import javax.servlet.http.Part;
 public class Review {
 /*
 REVIEW_NO
-REVIEW_FILE
 REVIEW_TITLE
+REVIEW_FILE
 REVIEW_TEXT
 REVIEW_TIME
 ACCOUNT_ID
+REVIEW_HIT
 */
 	private int REVIEW_NO;
 	private String REVIEW_TITLE;
 	private String REVIEW_TEXT;
 	private Timestamp REVIEW_TIME;
 	private String ACCOUNT_ID;
+	private int REVIEW_HIT;
 	
-	public Review(int REVIEW_NO, String REVIEW_TITLE, String REVIEW_TEXT, Timestamp REVIEW_TIME, String ACCOUNT_ID) {
+	public Review(int REVIEW_NO, String REVIEW_TITLE, String REVIEW_TEXT, Timestamp REVIEW_TIME, String ACCOUNT_ID, int REVIEW_HIT) {
 		this.REVIEW_NO = REVIEW_NO;
 		this.REVIEW_TITLE = REVIEW_TITLE;
 		this.REVIEW_TEXT = REVIEW_TEXT;
 		this.REVIEW_TIME = REVIEW_TIME;
 		this.ACCOUNT_ID = ACCOUNT_ID;
+		this.REVIEW_HIT = REVIEW_HIT;
 	}
 
 	public int getREVIEW_NO() {
@@ -64,5 +67,13 @@ ACCOUNT_ID
 
 	public void setACCOUNT_ID(String aCCOUNT_ID) {
 		ACCOUNT_ID = aCCOUNT_ID;
+	}
+	
+	public int getREVIEW_HIT() {
+		return REVIEW_HIT;
+	}
+
+	public void setREVIEW_HIT(int rEVIEW_HIT) {
+		REVIEW_HIT = rEVIEW_HIT;
 	}
 }

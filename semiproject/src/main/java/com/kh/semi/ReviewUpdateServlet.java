@@ -16,9 +16,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
-@WebServlet("/UpdateServlet")
+@WebServlet("/ReviewUpdateServlet")
 @MultipartConfig
-public class UpdateServlet extends HttpServlet {
+public class ReviewUpdateServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// JDBC 불러오기
 		String jdbcURL = "jdbc:oracle:thin:@localhost:1521:xe";
@@ -47,10 +47,10 @@ public class UpdateServlet extends HttpServlet {
 
             preparedStatement.executeUpdate();
 
-            response.sendRedirect("review_list.jsp");
+            response.sendRedirect("reviewList.jsp");
 		} catch (SQLException e) {
 
-			response.sendRedirect("review_error.jsp");
+			response.sendRedirect("review-error.jsp");
 			e.printStackTrace();
 		}
 	}

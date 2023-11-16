@@ -1,4 +1,5 @@
 package com.kh.semi;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -25,7 +26,7 @@ public class ReviewDAO {
 		List<Review> reviews = new ArrayList<>();
 		try {
 			Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-			String sql = "SELECT REVIEW_NO, REVIEW_TITLE, REVIEW_TEXT, REVIEW_TIME, ACCOUNT_ID FROM BOARD_REVIEW ORDER BY REVIEW_NO DESC";
+			String sql = "SELECT REVIEW_NO, REVIEW_TITLE, REVIEW_TEXT, REVIEW_TIME, ACCOUNT_ID, REVIEW_HIT FROM BOARD_REVIEW ORDER BY REVIEW_NO DESC";
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ResultSet resultSet = ps.executeQuery();
 			
@@ -35,8 +36,9 @@ public class ReviewDAO {
 				String reviewText = resultSet.getString("REVIEW_TEXT");
 				Timestamp reviewTime = resultSet.getTimestamp("REVIEW_TIME");
 				String accountId = resultSet.getString("ACCOUNT_ID");
+				int reviewHit = resultSet.getInt("REVIEW_HIT");
 				
-				Review review = new Review(reviewNo, reviewTitle, reviewText, reviewTime, accountId);
+				Review review = new Review(reviewNo, reviewTitle, reviewText, reviewTime, accountId, reviewHit);
 				reviews.add(review);
 			}
 		} catch (SQLException e) {
@@ -44,6 +46,34 @@ public class ReviewDAO {
 		}
 		return reviews;
 		
+	}
+	
+	public Review getReviewNo(int reviewNos) {
+		Review review = null;
+		String selectSql = "SELECT * FROM BOARD_REVIEW WHERE REVIEW_NO = ?";
+	
+		try {
+			Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+			PreparedStatement ps = connection.prepareStatement(selectSql);
+			ps.setInt(1, reviewNos);
+			ResultSet resultSet = ps.executeQuery();
+			
+			if(resultSet.next()) {
+				int reviewNo = resultSet.getInt("REVIEW_NO");
+				String reviewTitle = resultSet.getString("REVIEW_TITLE");
+				String reviewText = resultSet.getString("REVIEW_TEXT");
+				Timestamp reviewTime = resultSet.getTimestamp("REVIEW_TIME");
+				String accountId = resultSet.getString("ACCOUNT_ID");
+				int reviewHit = resultSet.getInt("REVIEW_HIT");
+				reviewHit++;
+				reviewHitUpdate(reviewHit, reviewNo);
+				
+				review = new Review (reviewNo, reviewTitle, reviewText, reviewTime, accountId, reviewHit);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return review;
 	}
 
 	public int deleteReview(int reviewNo) {
@@ -63,29 +93,17 @@ public class ReviewDAO {
 		return result;
 	}
 	
-	public Review getReviewNo(int reviewNos) {
-		Review review = null;
-		String selectSql = "SELECT * FROM BOARD_REVIEW WHERE REVIEW_NO = ?";
-	
+	public int reviewHitUpdate(int reviewHit, int reviewNo) {
 		try {
 			Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-			PreparedStatement ps = connection.prepareStatement(selectSql);
-			ps.setInt(1, reviewNos);
-			ResultSet resultSet = ps.executeQuery();
-			
-			if(resultSet.next()) {
-				int reviewNo = resultSet.getInt("REVIEW_NO");
-				String reviewTitle = resultSet.getString("REVIEW_TITLE");
-				String reviewText = resultSet.getString("REVIEW_TEXT");
-				Timestamp reviewTime = resultSet.getTimestamp("REVIEW_TIME");
-				String accountId = resultSet.getString("ACCOUNT_ID");
-				
-				review = new Review (reviewNo, reviewTitle, reviewText, reviewTime, accountId);
-			}
-		} catch (SQLException e) {
+			String SQL = "UPDATE BOARD_REVIEW SET REVIEW_HIT = ? WHERE REVIEW_NO = ?";
+			PreparedStatement ps = connection.prepareStatement(SQL);
+			ps.setInt(1, reviewHit);//물음표의 순서
+			ps.setInt(2, reviewNo);
+			return ps.executeUpdate();//insert,delete,update			
+		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		return review;
+		return -1;//데이터베이스 오류
 	}
-	
 }
