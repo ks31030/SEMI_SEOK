@@ -19,7 +19,6 @@
 				<%
 			        if (session.getAttribute("USER_NAME") != null) {
 			    %>
-			        
 			    <%-- 세션에서 사용자 이름 가져오기 --%>
 			    <% String user_name = (String)session.getAttribute("USER_NAME"); %>
 			    
