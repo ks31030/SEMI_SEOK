@@ -11,7 +11,7 @@
 	<title>가지고 싶은 물건, 가지가지 다~ 있다! 가지마켓</title>
 	<script src="https://kit.fontawesome.com/def66b134a.js" crossorigin="anonymous"></script>
 	</head>
-
+	
 	<body>
 		<div class="wrap">
 	        <div class="inner">
@@ -47,9 +47,10 @@
 	                    </ul>
 	                </nav>
 		        </div>
-	        <div class="innerReviewList">
-				<div style="overflow-y:scroll; width: 850px; height:500px;">
+	        <div class="mainform">
+				<div class="maintable">
 					<table border="1">
+						<tbody>
 	        			<tr>
 				            <th>번호</th>
 				            <th>제목</th>
@@ -74,21 +75,16 @@
 							<%
 							}
 							%>
+						</tbody>
 					</table>
+				</div>
+					<button class = "btn1"><a href="reviewPost.jsp">생성</a></button>
 				</div>
 				<div class="returnMain">
 	        	<a href="reviewList.jsp">
-	        		<img src="./img/goToMain.jpg" width="300px">
+	        		<img src="./img/goToMain.jpg" width="120px">
         		</a>
 	        	</div>
-			</div>
-			<foot>
-				<div>
-					<button class = "btn1"><a href="reviewPost.jsp">생성</a></button>
-				</div>
-			</foot>
-			<footer>
-	        </footer>
 	        </div>
 	    </div>
 	</body>
