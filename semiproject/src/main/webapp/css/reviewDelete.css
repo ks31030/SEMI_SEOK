@@ -18,6 +18,11 @@
     box-sizing: border-box;
 }
 
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
 .inner {
     width: 1000px;
     margin: auto;
@@ -109,13 +114,13 @@ li a:hover:after, li a:focus:after {
     -moz-transform: translateY(0px);
     transform: translateY(0px);
 }
-/*
+
 footer {
     text-align: center;
     background-color: beige;
     height: 100px;
 }
-*/
+
 /*********************from here*********************/
 	input[type="text"],
 	input[type="email"],
