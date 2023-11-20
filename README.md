@@ -1,10 +1,10 @@
-### README sample (프로젝트 리드미 사용 방법)
-# 프로젝트 이름
+### README
+# 가지마켓
 
 <p align="center">
   <br>
   이미지는 추후에 변경하시거나 삭제하시면 됩니다.<br /> 보통 메인 이미지를 올려놓습니다.<br />
-  <img src="https://img.freepik.com/free-vector/video-conference-remote-working-flat-illustration-screen-laptop-with-group-colleagues-people-conn_88138-548.jpg?w=900&t=st=1691033873~exp=1691034473~hmac=36bcd6579f5373a2f4555b77b3c120770cb7ab06608a267b80ca7ec436648620">
+  <img src="./readme-static/img/gajidori.png">
   <br>
 </p>
 
@@ -13,46 +13,110 @@
 ## 프로젝트 소개
 
 <p align="justify">
-프로젝트를 만들게 된 개요나 동기를 작성해주세요.
+1. 편의성과 간편성 : 중고상품 거래 및 소통을 위한 플랫폼으로서, 사용자들이 편리하고 간단하게 거래하고 소통할 수 있는 환경을 제공한다.
+2. 다양성과 자유 : 다양한 상품 카테고리와 자유게시판을 통하여 사용자들이 다양한 상품을 구매하고 판매한다.
+3. 커뮤니티 형성 : 사용자들 간의 소통을 촉진하여, 커뮤니티를 형성하고 함께 발전시켜 나가는 것 목표이다.
 </p>
 
 <p align="center">
-여러분이 만든 프로젝트를 캡쳐하거나 <strong>GIF</strong> 화면으로 만들어 <br />
-상대방이 프로젝트를 예시로 한 번에 볼수 있게 만들어주는게 좋습니다.<br />
-또는 배포하여 프로젝트 사이트를 올려도 좋습니다.<br />
-<strong>GIF</strong> 또는 <strong>Images</strong>
+<img src="./readme-static/img/서른즈음에.pdf">
 </p>
 
-<br>
-
-## 기술 스택
-
-| JavaScript |    Java    | 
-| :--------: | :--------: | 
-|   ![js]    |  ![java]   |
-
-<br>
 
 ## 구현 기능
 
-### 기능 1
-
-### 기능 2
-
-### 기능 3
-
-### 기능 4
-
+### 기능 1. 전체 목록 불러오기(SELECT)
+├─src
+│  │  └─main
+│  │      ├─java
+│  │      │  └─com
+│  │      │      └─kh
+│  │      │          └─semi
+│  │      │                  Review.java
+│  │      │                  ReviewDAO.java
+│  │      │
+│  │      └─webapp
+│  │          │  reviewList.jsp
+  ### 부가 기능 1-1. 스크롤(CSS)
+  ├─css
+  │  │          │      reviewList.css
+  ### 부가 기능 1-2. 조회수(UPDATE)
+  ├─src
+  │  │  └─main
+  │  │      ├─java
+  │  │      │  └─com
+  │  │      │      └─kh
+  │  │      │          └─semi
+  │  │      │                  Review.java
+  │  │      │                  ReviewDAO.java
+  │  │      │
+  │  │      └─webapp
+  │  │          |  reviewList.jsp
+### 기능 2. 새 글 생성하기(CREATE)
+│  ├─src
+│  │  └─main
+│  │      ├─java
+│  │      │  └─com
+│  │      │      └─kh
+│  │      │          └─semi
+│  │      │                  Review.java
+│  │      │                  ReviewPostServlet.java
+│  │      │
+│  │      └─webapp
+│  │          │  reviewPost.jsp
+│  │          ├─css
+│  │          │      reviewPost.css
+### 기능 3. 새 글 상세보기(SELECT)
+├─src
+│  │  └─main
+│  │      ├─java
+│  │      │  └─com
+│  │      │      └─kh
+│  │      │          └─semi
+│  │      │                  Review.java
+│  │      │                  ReviewDAO.java
+│  │      │                  ReviewServlet.java
+│  │      │
+│  │      └─webapp
+│  │          │  reviewDetail.jsp
+│  │          ├─css
+│  │          │      reviewDetail.css
+### 기능 4. 새 글 수정하기(UPDATE)
+├─src
+│  │  └─main
+│  │      ├─java
+│  │      │  └─com
+│  │      │      └─kh
+│  │      │          └─semi
+│  │      │                  Review.java
+│  │      │                  ReviewUpdateServlet.java
+│  │      │
+│  │      └─webapp
+│  │          │  reviewUpdate.jsp
+│  │          │
+│  │          ├─css
+│  │          │      reviewUpdate.css
+### 기능 5. 새 글 삭제하기(DELETE)
+│  ├─src
+│  │  └─main
+│  │      ├─java
+│  │      │  └─com
+│  │      │      └─kh
+│  │      │          └─semi
+│  │      │                  Review.java
+│  │      │                  ReviewDeleteServlet.java
+│  │      │
+│  │      └─webapp
+│  │          │  reviewDelete.jsp
+│  │          ├─css
+│  │          │      reviewDelete.css
 <br>
 
 ## 배운 점 & 아쉬운 점
 
 <p align="justify">
-여러분이 프로젝트를 진행하며 배운 부분과 에러해결(trouble shooting)을 작성해서 기술하면 좋습니다.<br />
-트러블슈팅(trouble shooting) : 문제 해결의 일종 / 보통 컴퓨터 시스템에서 발생하는 문제들을 해결하는 용어로 많이 사용합니다.
+  
 </p>
-
-<br>
 
 
 <!-- Stack Icon Refernces -->
